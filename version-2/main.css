@@ -1,0 +1,285 @@
+body {
+  font-family: 'caveat brush';
+  background: dodgerblue;
+}
+
+@font-face {
+  font-family: 'caveat brush';
+  src: url(./assets/fonts/CaveatBrush-Regular.ttf);
+}
+
+/*
+ *  preload images
+ */
+
+#preload-02 { background-image: url(./assets/images/buzzy-win.svg);  }
+#preload-03 { background-image: url(./assets/images/buzzy-left-lose.svg);  }
+#preload-04 { background-image: url(./assets/images/buzzy-right-lose.svg);  }
+#preload-05 { background-image: url(./assets/images/buzzy-bee-left.svg);  }
+#preload-06 { background-image: url(./assets/images/buzzy-bee-right.svg);  }
+
+.preload-css {
+  position: absolute;
+  left: -9999px;
+}
+
+.container {
+  bottom: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  left: 0;
+  overflow:hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.app-container {
+  overflow: hidden;
+  position: relative;
+}
+
+#app {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+
+#clock {
+  background: #444;
+  border: solid 2px white;
+  color: white;
+  font-family: courier;
+  left: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  visibility: hidden;
+  z-index: 100;
+}
+
+
+.progress-bar {
+  border-radius: 5px;
+  border: solid 2px white;
+  height: 20px;
+  margin: 10px;
+  padding: 10px;
+  visibility: hidden;
+}
+
+.logo {
+  background-image: url(./assets/images/buzzy-bee-logo.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 80px;
+  margin: 0 auto;
+  width: 300px;
+}
+
+
+.bird {
+  background-image: url(./assets/images/bird.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.bee {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+.bee.buzzy-win {
+  background-image: url(./assets/images/buzzy-win.svg);
+}
+
+.bee.left-lose {
+  background-image: url(./assets/images/buzzy-left-lose.svg);
+}
+
+.bee.right-lose {
+  background-image: url(./assets/images/buzzy-right-lose.svg);
+}
+
+.bee.left {
+  background-image: url(./assets/images/buzzy-bee-left.svg);
+}
+
+.bee.right {
+  background-image: url(./assets/images/buzzy-bee-right.svg);
+}
+
+.hive,
+.mrs-bee {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+}
+
+.mrs-bee {
+  background-image: url(./assets/images/mrs-buzzy.svg);
+  height: 150px;
+  right: 200px;
+  top: 200px;
+  width: 150px;
+  z-index: 1;
+}
+
+.start-image {
+  background-image: url(./assets/images/buzzy-bee-right.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 150px;
+  margin: auto;
+  width: 150px;
+}
+
+.wall {
+  --lg: 23em;
+  --bs: 58em;
+  font-size: 0.5px;
+  border: solid 2px black;
+  contain: strict;
+  background: oldlace;
+  background-image:
+    linear-gradient(335deg, firebrick var(--lg), transparent var(--lg)),
+    linear-gradient(155deg, firebrick var(--lg), transparent var(--lg)),
+    linear-gradient(335deg, firebrick var(--lg), transparent var(--lg)),
+    linear-gradient(155deg, firebrick var(--lg), transparent var(--lg));
+  background-size: var(--bs) var(--bs);
+  background-position: 0em 2em, 4em 35em, 29em 31em, 34em 6em;
+  transform-origin: bottom center;
+}
+
+.hive {
+  background-image: url(./assets/images/hive.svg);
+  background-position: left bottom;
+}
+
+#start-banner,
+#win-banner,
+#lose-banner {
+  background: transparent;
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+
+.banner-contents {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  border: solid 2px white;
+  margin: auto;
+  max-width: 80vw;
+  padding: 20px;
+  text-align: center;
+}
+
+#start-banner .banner-contents {
+  background: white;
+}
+
+.banner-contents h2 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.banner-contents p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.banner-contents .instructions {
+  font-family: helvetica;
+  font-size: 20px;
+}
+
+.banner-contents .blurb {
+  line-height: 1.4;
+}
+
+.win-banner-contents {
+  border-radius: 10px;
+  border: solid 3px white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.lose-banner-contents {
+  align-items: center;
+  border-radius: 10px;
+  border: solid 3px white;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  margin: auto;
+  padding: 10px;
+  width: 400px;
+}
+
+.banner-contents .message {
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+.grass {
+  background: limegreen;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.bunny {
+  background-image: url(./assets/images/bunny.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+}
+
+.bird-with-worm {
+  background-image: url(./assets/images/bird-with-worm.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  position: absolute;
+}
+
+.tree {
+  background-image: url(./assets/images/tree.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+button {
+  background: hotpink;
+  border-radius: 5px;
+  border: solid 2px white;
+  color: white;
+  font-weight: 700;
+  margin: 5px;
+  padding: 10px 20px;
+}
