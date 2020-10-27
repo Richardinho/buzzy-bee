@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './version-2/main.js',
+  entry: './src/main.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -33,7 +33,7 @@ module.exports = {
     contentBase: './dist',
   },
   plugins: [
-    new HtmlWebpackPlugin({template: './version-2/index.html'}),
+    new HtmlWebpackPlugin({template: './src/index.html'}),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
